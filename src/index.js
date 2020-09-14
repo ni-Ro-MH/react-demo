@@ -6,7 +6,11 @@ import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App shape="circle" scale="5"/>
+    <App 
+    shape="circle" 
+    scale="5" 
+    target="11" 
+    />
   </React.StrictMode>,
   document.getElementById('root')
 );

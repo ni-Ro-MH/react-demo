@@ -1,37 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 import circleImg from './icons8-circle-96.png';
 import squareImg from './icons8-rounded-square-96.png';
 
-const randomNumber = Math.ceil(Math.random() * 10);
-
-let countersAdded = 0;
-
-function increase() {
-  if (countersAdded < randomNumber) {
-    countersAdded++;
-    document.getElementById("numberAdded").innerHTML = countersAdded;
-    document.getElementById("counter" + countersAdded).hidden = false;
-  }
-}
-
-function decrease() {
-  if (countersAdded > 0) {
-    document.getElementById("counter" + countersAdded).hidden = true;
-    countersAdded--;
-    document.getElementById("numberAdded").innerHTML = countersAdded;
-  }
-}
 
 function App(props) {
-
   let counterImage;
+  const [state, setState] = useState(0);
+
+  function increase() {
+    const countersAdded = state + 1;
+  
+    if (countersAdded < props.target) {
+      setState(countersAdded);
+    }
+  }
+  
+  function decrease() {
+    const countersAdded = state - 1;
+  
+    if (countersAdded >= 0) {
+      setState(countersAdded)
+    }
+  }
 
   if (props.shape === "circle") {
     counterImage = circleImg;
-  }
-  else if (props.shape === "square") {
+  } else if (props.shape === "square") {
     counterImage = squareImg;
   }
 
@@ -40,7 +36,7 @@ function App(props) {
   for (let i = 0; i < 10; i++) {
     counters.push(
       <div className="box">
-        <img src={counterImage} id={"counter" + (i + 1)} className="counter" hidden/>
+        <img src={counterImage} className="counter" hidden={i >= state} />
       </div>
     );
   } 
@@ -52,10 +48,9 @@ function App(props) {
   };
 
   return (
-    
     <div id="comp" style={compStyle}>
-      <div className="number">{randomNumber}</div>
-      <div id="numberAdded" className="number">0</div>
+      <div className="number">{props.target}</div>
+      <div id="numberAdded" className="number">{state}</div>
       <div id="container">
         {counters}
       </div>
