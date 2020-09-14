@@ -1,0 +1,62 @@
+#comp {
+  background-color: rgb(56, 151, 240);
+  padding: 2%;
+  text-align: center;
+}
+
+.number {
+  font-size: 1em;
+  width: 10%;
+  height: 10%;
+  margin: 4% auto;
+}
+
+#numberAdded {
+  background-color: white;
+  margin-bottom: 0px;
+}
+
+#container {
+  background-color: rgb(169, 199, 238);
+  height: 30%;
+  width: 50%;
+  margin: auto;
+  padding: 10%;
+  border-style: solid;
+  border-width: 5px;
+  border-color: white;
+  font-size: 0px;
+}
+
+.box {
+  box-sizing: border-box;
+  border-style: solid;
+  background-color: white;
+  border-color: rgb(9, 158, 204);
+  border-width: 1px;
+  width: 20%;
+  height: 45%;
+  display: inline-block;
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+}
+
+.counter {
+  width: 100%;
+}
+
+#buttons {
+  height: 12%;
+  margin: 4%;
+}
+
+.button {
+  display: inline-block;
+  background-color: orange;
+  width: 15%;
+  height: 100%;
+  font-size: 1em;
+  color: black;
+  margin: 2%;
+}
